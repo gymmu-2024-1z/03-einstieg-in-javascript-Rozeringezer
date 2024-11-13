@@ -31,6 +31,7 @@ export function aufgabe01(args) {
 
     if (currentElement === "e") {
       // do nothing
+    } else if (currentElement === "E") {
     } else {
       result.push(currentElement)
     }
@@ -41,3 +42,56 @@ export function aufgabe01(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
+
+export function aufgabe02(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // wandle das aktuelle zeichen in einen grossbuchstaben um
+    const upperCase = currentElement.toUpperCase()
+    result.push(upperCase)
+  }
+
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe02]", aufgabe02)
+
+export function aufgabe03(args) {
+  const input = args
+  const result = []
+
+  // mache eine neue variable um die anzahl an es zu zählen
+  let eCount = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // wenn das aktuelle zeichen ein e ist, dann zähle es
+    if (currentElement === "e") {
+      // erhöhe den e zähler
+      eCount = eCount + 1
+    }
+  }
+  return eCount
+}
+linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
+
+export function aufgabe04(args) {
+  const input = args
+  const result = []
+
+  //Erstelle eine Variable um die Anzahl der Wörter zu zahlen
+  let wordCount = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    //Wenn das aktuelle Zeichen ein Leerzeichen ist, dann erhöhe die Anzahl der Wörter
+    if (currentElement === " ") {
+      wordCount = wordCount + 1
+    }
+  }
+  //gebe die Anzahl der Wörter zurück
+  return wordCount + 1
+}
+linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
