@@ -95,3 +95,104 @@ export function aufgabe04(args) {
   return wordCount + 1
 }
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
+
+export function aufgabe05(args) {
+  const input = args
+  const result = []
+
+  // Erstelle eine Variable hasCapitalLetter die am anfang falsch ist
+  let hasCapitalLetter = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    // erstelle eine Variable die den ascii code vom current element speichert
+    const asciiCode = currentElement.charCodeAt(0)
+
+    // Prüfe ob der ASCII code zwischen 65 und 90 ist
+    if (asciiCode >= 65 && asciiCode <= 90) {
+      // Wenn ja, dann setze die hasCapitalLetter auf true
+      hasCapitalLetter = true
+    }
+  }
+  //gebe die Anzahl der Großbuchstaben zuruck
+  return hasCapitalLetter
+}
+linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
+
+export function aufgabe06(args) {
+  const input = args
+  const result = []
+
+  //Erstelle eine Variable hasSpecialCharacter die am anfang falsch ist
+  let hasSpecialCharacter = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    // erstelle eine Variable die den ascii code vom current element speichert
+    const asciiCode = currentElement.charCodeAt(0)
+
+    //Prüfe ob der ASCII code zwischen 65 und 90 ist
+    if (asciiCode >= 65 && asciiCode <= 90) {
+      //Grossbuchstaben
+      // kein sonderzeichen
+    } else if (asciiCode >= 48 && asciiCode <= 57) {
+      //Zahlen
+      // kein sonderzeichen
+    } else if (asciiCode >= 97 && asciiCode <= 122) {
+      // Kleinbuchstaben
+      // kein sonderzeichen
+    } else {
+      // Wenn ja, dann setze die hasSpecialCharacter auf true
+      hasSpecialCharacter = true
+    }
+  }
+
+  //gebe hasSpecialCharacter zuruck
+  return hasSpecialCharacter
+}
+linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
+
+export function aufgabe07(args) {
+  const input = args
+  const result = []
+
+  //Erstelle eine Variable um zu testen ob in einem Text das Wort 'und' vorkommt
+  let hasUnd = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (
+      currentElement === "u" &&
+      input[i + 1] === "n" &&
+      input[i + 2] === "d"
+    ) {
+      // Wenn ja, dann setze die hasUnd auf true
+      hasUnd = true
+    }
+  }
+  //gebe hasUnd zuruck
+  return hasUnd
+}
+linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
+
+export function aufgabe08(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    // Wenn das aktuelle Zeichen ein e ist, dann hänge eine 3 an
+    if (currentElement === "e" || currentElement === "E") {
+      result.push("3")
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
