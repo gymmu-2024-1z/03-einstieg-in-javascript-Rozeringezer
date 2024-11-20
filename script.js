@@ -196,3 +196,29 @@ export function aufgabe08(args) {
   return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
+
+export function aufgabe09(args) {
+  const input = args
+  const result = []
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    count = count + 1
+  }
+
+  // Wenn count genau gleich 6 ist, dann gebe true zuruck
+  if (count === 6) {
+    return true
+  } else {
+    return false
+  } // Wenn nicht, gebe false zuruck
+}
+linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
+
+export function aufgabe10(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {}
+}
