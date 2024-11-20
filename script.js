@@ -219,6 +219,4 @@ linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
 export function aufgabe10(args) {
   const input = args
   const result = []
-
-  for (let i = 0; i < input.length; i++) {}
 }
