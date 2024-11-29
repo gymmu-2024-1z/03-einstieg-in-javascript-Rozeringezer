@@ -215,6 +215,28 @@ export function aufgabe09(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
 
+export function aufgabe10(args) {
+  const input = args
+
+  const isHex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(input)
+  return isHex // Gebe true zurück,wenn es ein gültiger Hexcode ist, ansonsten fals
+}
+linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
+
+export function aufgabe11(args) {
+  const input = args
+
+  //Prüfe, ob genau ein Zeichen übergeben wurde
+  if (input.length === 1) {
+    return -1 //Falls die Eingabe nicht genau ein Zeichen ist, gebe -1 zuruck
+  }
+
+  const asciiCode = input.charCodeAt(0)
+
+  return asciiCode
+}
+linkupExerciseHandler("[data-click=aufgabe11]", aufgabe11)
+
 export function aufgabe12(args) {
   const input = args
   let position = -1
@@ -225,7 +247,7 @@ export function aufgabe12(args) {
     //Wenn das aktuelle Zeichen ein e ist
     if (currentElement === "e") {
       position = i
-      break
+      break // breche die schleife ab
     }
   }
 
@@ -244,7 +266,6 @@ export function aufgabe13(args) {
     //Wenn das aktuelle Zeichen ein e ist
     if (currentElement === "e") {
       position = i
-      break
     }
   }
   return position //gebe die position des letzten e zuruck
@@ -291,3 +312,8 @@ export function aufgabe15(args) {
   return result
 }
 linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
+
+export function aufgabe16(args) {
+  const input = args
+  const result = []
+}
