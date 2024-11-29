@@ -192,7 +192,6 @@ export function aufgabe08(args) {
       result.push(currentElement)
     }
   }
-
   return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
@@ -216,7 +215,79 @@ export function aufgabe09(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
 
-export function aufgabe10(args) {
+export function aufgabe12(args) {
   const input = args
-  const result = []
+  let position = -1
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    //Wenn das aktuelle Zeichen ein e ist
+    if (currentElement === "e") {
+      position = i
+      break
+    }
+  }
+
+  //gebe die position des ersten e zuruck
+  return position
 }
+linkupExerciseHandler("[data-click=aufgabe12]", aufgabe12)
+
+export function aufgabe13(args) {
+  const input = args
+  let position = -1
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    //Wenn das aktuelle Zeichen ein e ist
+    if (currentElement === "e") {
+      position = i
+      break
+    }
+  }
+  return position //gebe die position des letzten e zuruck
+}
+linkupExerciseHandler("[data-click=aufgabe13]", aufgabe13)
+
+export function aufgabe14(args) {
+  const input = args
+  let position = -1
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    //Prüfe ob das aktuelle Zeichen ein e ist
+    if (currentElement === "e") {
+      count = count + 1
+
+      //Wenn das dritte e gefunden wurde
+      if (count === 3) {
+        position = i
+        break
+      }
+    }
+  }
+  return position //gebe die position des dritten e zuruck (oder falls kein e gefunden wurde, gebe -1 zuruck)
+}
+linkupExerciseHandler("[data-click=aufgabe14]", aufgabe14)
+
+export function aufgabe15(args) {
+  const input = args
+  let result = ""
+
+  //Durchlaufe die Eingabezeichen, bis das erste Leerzeichen gefunden wurde
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Wenn das aktuelle Zeichen ein Leerzeichen ist, breche die Schleife ab
+    if (currentElement === " ") {
+      break
+    }
+    //Füge das aktuelle Zeichen zur Ergebnisliste hinzu
+    result = result + currentElement
+  }
+  return result
+}
+linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
