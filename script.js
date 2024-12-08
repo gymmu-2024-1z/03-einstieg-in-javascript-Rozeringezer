@@ -315,5 +315,108 @@ linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
 
 export function aufgabe16(args) {
   const input = args
-  const result = []
+  let firstPart = ""
+  let secondPart = ""
+  let foundDollar = false
+
+  //Durchlaufe die Eingabezeichen
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    //Wenn das aktuelle Zeichen ein Dollarzeichen ist, schalte um secondPart
+    if (currentElement === "$") {
+      foundDollar = true
+      continue // Überspringe das Dollarzeichen
+    }
+
+    //Füge das aktuelle Zeichen zu firstPart hinzu
+    if (foundDollar) {
+      firstPart = firstPart + currentElement
+    } else {
+      secondPart = secondPart + currentElement
+    }
+  }
+
+  //Ergebnis als Array ausgeben
+  return [firstPart, secondPart]
 }
+linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
+
+export function aufgabe17(args) {
+  const input = args
+  let currentEntry = ""
+  let result = []
+
+  //Durchlaufe die Eingabezeichen
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    //Wenn das aktuelle Zeichen `,` ist, füge den aktuellen Eintrag zur Ergebnisliste hinzu
+    if (currentElement === ",") {
+      result.push(currentEntry) //Speichere den bisherigen Eintrag
+      currentEntry = "" //Resette den aktuellen Eintrag
+    } else {
+      currentEntry = currentEntry + currentElement
+    }
+  }
+
+  //Füge den letzten Eintrag zur Ergebnisliste hinzu (nach der Schleife)
+  if (currentEntry !== "") {
+    result.push(currentEntry)
+  }
+
+  return result //Gebe die Ergebnisliste zuruck
+}
+linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
+
+export function aufgabe18(args) {
+  const name = prompt("Wie heißt du?")
+  const age = prompt("Wie alt bist du?")
+
+  //Ausgabe mit den eingegeben Werten
+  const output = `Hallo ${name}, du bist ${age} Jahre alt!`
+
+  // Ausgabe der Nachricht
+  console.log(output)
+}
+linkupExerciseHandler("[data-click=aufgabe18]", aufgabe18)
+
+export function aufgabe19(args) {
+  const input = prompt("Bitte gib einen Text ein:")
+
+  //überprüfe, ob der Benutzer etwas eingegeben hat
+  if (input === null) {
+    return // Falls der Benutzer den Dialog abbricht
+  }
+
+  //Verdopple jedes Zeichen in der Eingabe
+  let doubledInput = ""
+  for (let i = 0; i < input.length; i++) {
+    doubledInput = doubledInput + input[i] + input[i] //Verdopple jedes Zeichen
+  }
+
+  //Ausgabe der verdopplten Eingabe
+  console.log(doubledInput)
+}
+
+linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
+
+export function aufgabe20(args) {
+  const input = prompt("Bitte gib einen Text ein:")
+
+  //überprüfe, ob der Benutzer den Dialog abbricht
+  if (input === null) {
+    return
+  }
+
+  //Prüfe, ob nach jedem Punkt ein Leerzeichen kommt
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === ".") {
+      if (input[i + 1] !== " ") {
+        return false //Nach einem Punkt kommt kein Leerzeichen
+      }
+    }
+  }
+  return true //Nach jedem Punkt kommt ein Leerzeichen
+}
+
+linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
