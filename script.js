@@ -218,8 +218,11 @@ linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
 export function aufgabe10(args) {
   const input = args
 
-  const isHex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(input)
-  return isHex // Gebe true zurück,wenn es ein gültiger Hexcode ist, ansonsten fals
+  //RegEx für gültige Hex-Codes (6 oder 3 Stellen nach dem #)
+  const isHex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
+
+  //Rückgabe, ob es sich um einen gültigen Hex-Code handelt
+  return isHex.test(input)
 }
 linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
 
