@@ -384,12 +384,7 @@ export function aufgabe18(args) {
 linkupExerciseHandler("[data-click=aufgabe18]", aufgabe18)
 
 export function aufgabe19(args) {
-  const input = prompt("Bitte gib einen Text ein:")
-
-  //überprüfe, ob der Benutzer etwas eingegeben hat
-  if (input === null) {
-    return // Falls der Benutzer den Dialog abbricht
-  }
+  const input = args
 
   //Verdopple jedes Zeichen in der Eingabe
   let doubledInput = ""
@@ -398,13 +393,13 @@ export function aufgabe19(args) {
   }
 
   //Ausgabe der verdopplten Eingabe
-  console.log(doubledInput)
+  return doubledInput
 }
 
 linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
 
 export function aufgabe20(args) {
-  const input = prompt("Bitte gib einen Text ein:")
+  const input = args
 
   //überprüfe, ob der Benutzer den Dialog abbricht
   if (input === null) {
@@ -423,3 +418,18 @@ export function aufgabe20(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
+
+export function aufgabe21(args) {
+  const input = args
+  const result = []
+  //Kehr die Eingabe um
+  for (let i = input.length - 1; i >= 0; i--) {
+    const currentElement = input[i]
+    result.push(currentElement)
+  }
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
+
+export function aufgabe22(args) {
+  const input = args
