@@ -135,7 +135,7 @@ export function aufgabe05(args) {
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
-    // erstelle eine Variable die den ascii code vom current element speichert
+    // Erstelle eine Variable die den ascii code vom current element speichert
     const asciiCode = currentElement.charCodeAt(0)
 
     // Prüfe ob der ASCII code zwischen 65 und 90 ist
@@ -376,27 +376,26 @@ linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 export function aufgabe17(args) {
   const input = args
-  let currentEntry = ""
-  let result = []
+  const totalist = []
+  const currentlist = []
 
-  //Durchlaufe die Eingabezeichen
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    //Wenn das aktuelle Zeichen `,` ist, füge den aktuellen Eintrag zur Ergebnisliste hinzu
-    if (currentElement === ",") {
-      result.push(currentEntry) //Speichere den bisherigen Eintrag
-      currentEntry = "" //Resette den aktuellen Eintrag
+
+    //Wenn wir ein Leeerzeichen treffen, dann schreiben wir alles was wir bisher jetzt haben, in die totalist
+
+    if (currentElement === " ") {
+      totalist.push(currentlist.join(""))
+      currentlist.length = 0
     } else {
-      currentEntry = currentEntry + currentElement
+      currentlist.push(currentElement)
     }
   }
 
-  //Füge den letzten Eintrag zur Ergebnisliste hinzu (nach der Schleife)
-  if (currentEntry !== "") {
-    result.push(currentEntry)
-  }
+  //Wir schreiben alles was wir noch bis zum Ende gelesen haben, in die Liste
+  totalist.push(currentlist.join(""))
 
-  return result //Gebe die Ergebnisliste zuruck
+  return totalist
 }
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
 
