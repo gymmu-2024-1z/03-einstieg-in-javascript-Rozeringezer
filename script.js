@@ -81,18 +81,47 @@ export function aufgabe04(args) {
   const input = args
   const result = []
 
-  //Erstelle eine Variable um die Anzahl der Wörter zu zahlen
-  let wordCount = 0
-
+  //Wir filtern die Eingabe so, dass nur noch Buchstaben und Leerzeichen übrig bleiben
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    //Wenn das aktuelle Zeichen ein Leerzeichen ist, dann erhöhe die Anzahl der Wörter
-    if (currentElement === " ") {
-      wordCount = wordCount + 1
+    const asciiCode = currentElement.charCodeAt(0)
+
+    if (asciiCode >= 65 && asciiCode <= 90) {
+      // Grossbuchstaben
+      result.push(currentElement)
+    } else if (asciiCode >= 97 && asciiCode <= 122) {
+      // Kleinbuchstaben
+      result.push(currentElement)
+    } else if (asciiCode === 32) {
+      // Leerzeichen
+      result.push(currentElement)
+    }
+    //Jetzt können wir noch mehrere Lehrzeichen die am Stück vorkommen, rausfiltern
+  }
+  const result2 = []
+
+  for (let i = 0; i < result.length; i++) {
+    const currentElement = result[i]
+    const nextElement = result[i + 1]
+
+    if (currentElement === " " && nextElement === " ") {
+      //Hier sind 2 Leerzeichen hintereinander, wir ignorieren das erste
+    } else {
+      result2.push(currentElement)
     }
   }
-  //gebe die Anzahl der Wörter zurück
-  return wordCount + 1
+
+  //Jetzt können wir die Leerzeichen zählen
+  let spaceCount = 0
+  for (let i = 0; i < result2.length; i++) {
+    const currentElement = result2[i]
+    if (currentElement === " ") {
+      spaceCount = spaceCount + 1
+    }
+  }
+
+  //Da es ein Wort mehr wie Leerzeichen gibt, geben wir Leerzeichen zuruck
+  return spaceCount + 1
 }
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
@@ -452,3 +481,8 @@ export function aufgabe22(args) {
   return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
+
+export function aufgabe23(args) {
+  const input = args
+  const result = []
+}
