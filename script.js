@@ -362,7 +362,7 @@ export function aufgabe16(args) {
     }
 
     //Füge das aktuelle Zeichen zu firstPart hinzu
-    if (foundDollar) {
+    if (foundDollar === false) {
       firstPart = firstPart + currentElement
     } else {
       secondPart = secondPart + currentElement
