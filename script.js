@@ -400,14 +400,25 @@ export function aufgabe17(args) {
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
 
 export function aufgabe18(args) {
-  const name = prompt("Wie heißt du?")
-  const age = prompt("Wie alt bist du?")
+  const input = args
 
-  //Ausgabe mit den eingegeben Werten
-  const output = `Hallo ${name}, du bist ${age} Jahre alt!`
+  //Wir verwenden die Aufgabe 17 um eine Liste zu bekommen
+  const nameAndAge = aufgabe17(input)
 
-  // Ausgabe der Nachricht
-  console.log(output)
+  //Wir generieren unsere Ausgabeliste
+  const result = []
+
+  //Hier schreiben wir ganze Worte in die Liste, auch das ist möglich
+  result.push("Sie heissen ")
+
+  //Wir setzen die Liste dann so zusammen, dass der Name und das Alter an der richtigen Stelle eingefügt werden
+  result.push(nameAndAge[0])
+  result.push(" und sind ")
+  result.push(nameAndAge[1])
+  result.push(" Jahre alt.")
+
+  //Wir geben das Resultat als Text zuruck
+  return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe18]", aufgabe18)
 
