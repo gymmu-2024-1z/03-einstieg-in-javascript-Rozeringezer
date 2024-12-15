@@ -549,3 +549,56 @@ export function aufgabe25(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe25]", aufgabe25)
+
+export function aufgabe26(args) {
+  const input = args
+
+  //Wenn der Text weniger als 2 Zeichen hat, gibt es nichts zu tauschen
+  if (input.length < 2) {
+    return input
+  }
+
+  const firstChar = input[0]
+  const secondChar = input[1]
+
+  //Vergleichen der beiden ersten Zeichen alphanumerisch
+  if (firstChar > secondChar) {
+    //Wenn das erste Zeichen größer ist, tausche sie
+    return secondChar + firstChar + input.slice(2) //Nur die ersten beiden Zeichen tauschen
+  }
+
+  // Ansonsten bleibt  die Reihenfolge wie es ist
+  return input
+}
+
+linkupExerciseHandler("[data-click=aufgabe26]", aufgabe26)
+
+export function aufgabe27(args) {
+  const input = args
+
+  //Überprüfen, ob es eine Zahl ist
+  const isNumber = !isNaN(input) && input.trim() !== ""
+
+  //Rückgabe, ob es eine Zahl ist
+  return isNumber
+}
+linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
+
+export function aufgabe28(args) {
+  const input = args.trim()
+
+  //Die Eingabe wird in zwei Teile unterteilt
+  const parts = input.split(" ")
+
+  // Überprüfen, ob es genau zwei Teile gibt und beide Teile gültige Zahlen sind
+  if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+    // Umwandeln der beiden Teile in Zahlen und berechnen der Summe
+    const num1 = parseFloat(parts[0])
+    const num2 = parseFloat(parts[1])
+    return num1 + num2
+  }
+
+  //Falls es keine zwei Zahlen sind oder der Input ungültig ist
+  return "Fehler: Bitte geben Sie zwei Zahlen durch ein Leerzeichen getrennt ein."
+}
+linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
