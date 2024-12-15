@@ -493,6 +493,59 @@ export function aufgabe22(args) {
 linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
 
 export function aufgabe23(args) {
-  const input = args
-  const result = []
+  const input = args // Eingabe-Text
+  const firsChar = input[0] // Erstes Zeichen in der Eingabe
+
+  //Rückgabe: Erstes Zeichen vorne + Originaltext + Erstes Zeichen hinten
+  return firsChar + input + firsChar
 }
+
+//Verknüpfung der Aufgaben
+linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
+
+export function aufgabe24(args) {
+  const input = args
+
+  //Wenn der Text weniger als 2 Zeichen hat, gibt es nichts zu vertauschen
+  if (input.length < 2) {
+    return input
+  }
+
+  //Speichere das erste und das letzte Zeichen
+  const firstChar = input[0]
+  const lastChar = input[input.length - 1]
+
+  //Erzeuge den neuen Text mit vertauschten Zeichen
+  const middle = input.slice(1, input.length - 1)
+  const result = lastChar + middle + firstChar
+
+  //Gib das Ergebnis zuruck
+  return result
+}
+
+linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
+
+export function aufgabe25(args) {
+  const input = args
+
+  //Wenn der Text weniger als 2 Zeichen hat, gibt es nichts zu löschen
+  if (input.length < 2) {
+    return input
+  }
+
+  const length = input.length
+
+  //Wenn die Anzahl Zeichen ungerade ist
+  if (length % 2 !== 0) {
+    const middleIndex = Math.floor(length / 2)
+
+    return input.slice(0, middleIndex) + input.slice(middleIndex + 1)
+  }
+
+  //Wenn die Anzahl Zeichen gerade ist
+  const middleStart = length / 2 - 1
+  const middleEnd = length / 2 + 1 //Der End-Index ist der nächste nach den mittleren Zeichen
+  return input.slice(0, middleStart) + input.slice(middleEnd)
+}
+
+linkupExerciseHandler("[data-click=aufgabe25]", aufgabe25)
