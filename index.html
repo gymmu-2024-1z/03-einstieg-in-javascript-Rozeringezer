@@ -1,5 +1,5 @@
 <!doctype html>
-<ht="de">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,7 +9,7 @@
     <script type="module" src="script.js"></script>
   </head>
 
-  <div>
+  <body>
     <!-- Eingabe Panel -->
     <div id="input-panel">
       <h1>Aufgaben für Bedingungen und Schleifen</h1>
@@ -27,9 +27,15 @@
       <button type="button" data-click="bubbleSort">bubbleSort</button>
       <button type="button" data-click="selectionSort">selectionSort</button>
       <button type="button" data-click="insertionSort">insertionSort</button>
-      <button type="button" data-click="eigene Aufgabe 03">eigene Aufgabe 03</button>
-      <button type="button" data-click="eigene Aufgabe 02">eigene Aufgabe 02</button>
-      <button type="button" data-click="eigene Aufgabe 01">eigene Aufgabe 01</button>
+      <button type="button" data-click="eigene Aufgabe 03">
+        eigene Aufgabe 03
+      </button>
+      <button type="button" data-click="eigene Aufgabe 02">
+        eigene Aufgabe 02
+      </button>
+      <button type="button" data-click="eigene Aufgabe 01">
+        eigene Aufgabe 01
+      </button>
       <button type="button" data-click="aufgabe28">Aufgabe 28</button>
       <button type="button" data-click="aufgabe27">Aufgabe 27</button>
       <button type="button" data-click="aufgabe26">Aufgabe 26</button>
@@ -59,21 +65,37 @@
       <button type="button" data-click="aufgabe02">Aufgabe 2</button>
       <button type="button" data-click="aufgabe01">Aufgabe 1</button>
     </div>
-  </body>
 
+    <!-- Panel für Sortierverfahren -->
     <div id="input-panel">
-    <h1>Sortierverfahren</h1>
-    <input id="sortInput" type="text" placeholder="Geben Sie Zahlen, z.B. 5,3,8,1" />
-  </div>
+      <h1>Sortierverfahren</h1>
+      <input
+        id="sortInput"
+        type="text"
+        placeholder="Geben Sie Zahlen, z.B. 5,3,8,1" />
+    </div>
 
-  <!-- Buttons für die Sortierverfahren -->
-  <div class="button-container">
-    <button type="button" data-click="bubbleSort">Bubble Sort</button>
-    <button type="button" data-click="selectionSort">Selection Sort</button>
-    <button type="button" data-click="insertionSort">Insertion Sort</button>
-  </div>
+    <!-- Buttons für die Sortierverfahren -->
+    <div class="button-container">
+      <button type="button" data-click="bubbleSort">Bubble Sort</button>
+      <button type="button" data-click="selectionSort">Selection Sort</button>
+      <button type="button" data-click="insertionSort">Insertion Sort</button>
+    </div>
 
-  <!-- Bereich für das Ergebnis -->
-  <div id="result"></div>
-</body>
+    <!-- Bereich für das Ergebnis -->
+    <div id="result"></div>
+
+    <!-- Panel für die eigenen Aufgaben -->
+    <div class="button-container">
+      <button type="button" data-click="eigeneAufgabe01">
+        Eigene Aufgabe 01
+      </button>
+      <button type="button" data-click="eigeneAufgabe02">
+        Eigene Aufgabe 02
+      </button>
+      <button type="button" data-click="eigeneAufgabe03">
+        Eigene Aufgabe 03
+      </button>
+    </div>
+  </body>
 </html>
