@@ -677,14 +677,15 @@ linkupExerciseHandler("[data-click='insertionSort']", () =>
 //Funktion zur Überprüfung, ob eine Zahl eine Primzahl ist
 function isPrime(number) {
   if (number <= 1) {
-    return false
+    return false // Zahlen kleiner oder gleich 1 sind keine Primzahlen
   }
+  //Überprüfe, ob die Zahl durch 2 teilbar ist
   for (let i = 2; i <= Math.sqrt(number); i++) {
     if (number % i === 0) {
       return false
     }
   }
-  return true
+  return true //Es ist eine Primzahl
 }
 
 // Funktion, die aufgerufen wird, wenn der Button geklickt wird
