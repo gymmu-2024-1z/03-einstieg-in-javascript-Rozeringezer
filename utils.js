@@ -104,3 +104,66 @@ export function linkupExerciseHandler(selector, cb) {
     elem?.addEventListener("click", () => $(cb))
   }
 }
+
+// Bubble Sort
+export function bubbleSort(arr) {
+  const n = arr.length
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // Tausche die Elemente
+        let temp = arr[j]
+        arr[j] = arr[j + 1]
+        arr[j + 1] = temp
+      }
+    }
+  }
+  return arr
+}
+
+// Selection Sort
+export function selectionSort(arr) {
+  const n = arr.length
+  for (let i = 0; i < n - 1; i++) {
+    let minIdx = i
+    for (let j = i + 1; j < n; j++) {
+      if (arr[j] < arr[minIdx]) {
+        minIdx = j
+      }
+    }
+    // Tausche das Minimum-Element mit dem aktuellen Element
+    let temp = arr[i]
+    arr[i] = arr[minIdx]
+    arr[minIdx] = temp
+  }
+  return arr
+}
+
+// Insertion Sort
+export function insertionSort(arr) {
+  const n = arr.length
+  for (let i = 1; i < n; i++) {
+    const key = arr[i]
+    let j = i - 1
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j]
+      j = j - 1
+    }
+    arr[j + 1] = key
+  }
+  return arr
+}
+
+// Funktion zur Überprüfung, ob eine Zahl eine Primzahl ist
+export function isPrime(number) {
+  if (number <= 1) {
+    return false // Zahlen kleiner oder gleich 1 sind keine Primzahlen
+  }
+  // Überprüfe, ob die Zahl durch eine Zahl von 2 bis zur Quadratwurzel der Zahl teilbar ist
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false // Es ist keine Primzahl
+    }
+  }
+  return true // Es ist eine Primzahl
+}
