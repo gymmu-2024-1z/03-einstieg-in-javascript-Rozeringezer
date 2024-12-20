@@ -639,6 +639,19 @@ linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
 // Importiere die Sortierfunktionen
 import { bubbleSort, selectionSort, insertionSort } from "./utils.js"
 
+// Funktion zum Anzeigen des Sortierergebnisses
+function handleSort(sortFunction) {
+  const input = getInputValue() // Holt den Text aus dem Eingabefeld
+  if (input) {
+    const parsedInput = input.split(",").map(Number) // Wandelt die Eingabe in ein Array von Zahlen um
+    const result = sortFunction(parsedInput) // Sortiert die Eingabe
+    document.querySelector("#result").textContent = result.join(", ") // Zeigt das Ergebnis im div mit der ID "result"
+  } else {
+    document.querySelector("#result").textContent =
+      "Bitte eine gültige Eingabe machen!" // Falls die Eingabe leer ist
+  }
+}
+
 // Diese Funktion holt den Wert aus dem Eingabefeld
 function getInputValue() {
   const input = document.querySelector("#sortInput") // Holt das Eingabefeld
@@ -653,51 +666,61 @@ function linkupExerciseHandler(selector, callback) {
   }
 }
 
-// Funktion zum Anzeigen des Sortierergebnisses
-function handleSort(sortFunction) {
-  const input = getInputValue() // Holt den Text aus dem Eingabefeld
-  if (input) {
-    const result = sortFunction(input) // Sortiert die Eingabe
-    document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
-  } else {
-    document.querySelector("#sortOutput").textContent =
-      "Bitte eine gültige Eingabe machen!"
-  }
+// Verknüpfen der Buttons mit den Sortierfunktionen
+export function bubbleSortHandler(args) {
+  handleSort(bubbleSort)
 }
 
-// Verknüpft die Buttons mit den jeweiligen Sortierfunktionen
-linkupExerciseHandler("[data-click='bubbleSort']", () => handleSort(bubbleSort))
-linkupExerciseHandler("[data-click='selectionSort']", () =>
-  handleSort(selectionSort),
-)
-linkupExerciseHandler("[data-click='insertionSort']", () =>
-  handleSort(insertionSort),
-)
+linkupExerciseHandler("[data-click=bubbleSort]", bubbleSortHandler)
 
-//Funktion zur Überprüfung, ob eine Zahl eine Primzahl ist
-function isPrime(number) {
-  if (number <= 1) {
-    return false // Zahlen kleiner oder gleich 1 sind keine Primzahlen
-  }
-  //Überprüfe, ob die Zahl durch 2 teilbar ist
-  for (let i = 2; i <= Math.sqrt(number); i++) {
-    if (number % i === 0) {
-      return false
-    }
-  }
-  return true //Es ist eine Primzahl
+export function selectionSortHandler(args) {
+  handleSort(selectionSort)
 }
 
-// Funktion, die aufgerufen wird, wenn der Button geklickt wird
+linkupExerciseHandler("[data-click=selectionSort]", selectionSortHandler)
+
+export function insertionSortHandler(args) {
+  handleSort(insertionSort)
+}
+
+linkupExerciseHandler("[data-click=insertionSort]", insertionSortHandler)
+
+// Importiere die Primzahl-Funktion
+import { isPrime } from "./utils.js"
+
+// Diese Funktion holt den Wert aus dem Eingabefeld
+function getInputValue() {
+  const input = document.querySelector("#primeInput") // Holt das Eingabefeld
+  return input.value.trim() // Entfernt unnötige Leerzeichen und gibt den Wert zurück
+}
+
+// Funktion zum Überprüfen, ob die Zahl eine Primzahl ist
 function checkPrime() {
-  //Eingabe aus dem Textfeld holen
-  const num = parseInt(document.getElementById("numberInput").value)
+  const input = getInputValue() // Holt den Text aus dem Eingabefeld
+  const number = parseInt(input) // Wandelt den Wert in eine Zahl um
 
-  // Überprüfen, ob die Zahl eine Primzahl ist
-  const resultElement = document.getElementById("result")
-  if (isPrime(num)) {
-    resultElement.textContent = "Die Zahl ist eine Primzahl."
+  if (!isNaN(number)) {
+    const result = isPrime(number) // Überprüfe, ob die Zahl eine Primzahl ist
+    document.querySelector("#primeResult").textContent = result
+      ? `${number} ist eine Primzahl.`
+      : `${number} ist keine Primzahl.`
   } else {
-    resultElement.textContent = "Die Zahl ist keine Primzahl."
+    document.querySelector("#primeResult").textContent =
+      "Bitte eine gültige Zahl eingeben!" // Falls die Eingabe ungültig ist
   }
 }
+
+// Diese Funktion verknüpft Buttons mit der Funktion zur Primzahlüberprüfung
+function linkupExerciseHandler(selector, callback) {
+  const button = document.querySelector(selector) // Holt den Button
+  if (button) {
+    button.addEventListener("click", callback) // Wenn der Button geklickt wird, die Funktion ausführen
+  }
+}
+
+// Verknüpfen des Buttons für die Primzahlüberprüfung
+export function primeCheckHandler(args) {
+  checkPrime()
+}
+
+linkupExerciseHandler("[data-click=checkPrime]", primeCheckHandler)

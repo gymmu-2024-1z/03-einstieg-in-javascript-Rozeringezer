@@ -160,21 +160,18 @@ export function insertionSort(input, isAlphabet = false) {
   return arr.join(", ")
 }
 
-// Hilfsfunktion zur Eingabeprüfung und Konvertierung
-function parseInput(input, isAlphabet) {
-  let arr = input
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean)
+// utils.js
 
-  if (isAlphabet) {
-    // Prüfen, ob alle Einträge Buchstaben sind
-    if (!arr.every((char) => /^[a-zA-Z]+$/.test(char))) return null
-    return arr.map((char) => char.toLowerCase()).sort() // Optional: case-insensitive
-  } else {
-    // Prüfen, ob alle Einträge Zahlen sind
-    let numArr = arr.map((num) => parseInt(num, 10))
-    if (numArr.some(isNaN)) return null
-    return numArr
+// Funktion zur Überprüfung, ob eine Zahl eine Primzahl ist
+export function isPrime(number) {
+  if (number <= 1) {
+    return false // Zahlen kleiner oder gleich 1 sind keine Primzahlen
   }
+  // Überprüfe, ob die Zahl durch eine Zahl von 2 bis zur Quadratwurzel der Zahl teilbar ist
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false // Es ist keine Primzahl
+    }
+  }
+  return true // Es ist eine Primzahl
 }
