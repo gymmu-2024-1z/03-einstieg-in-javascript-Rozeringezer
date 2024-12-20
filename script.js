@@ -653,36 +653,23 @@ function linkupExerciseHandler(selector, callback) {
   }
 }
 
+// Funktion zum Anzeigen des Sortierergebnisses
+function handleSort(sortFunction) {
+  const input = getInputValue() // Holt den Text aus dem Eingabefeld
+  if (input) {
+    const result = sortFunction(input) // Sortiert die Eingabe
+    document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+  } else {
+    document.querySelector("#sortOutput").textContent =
+      "Bitte eine gültige Eingabe machen!"
+  }
+}
+
 // Verknüpft die Buttons mit den jeweiligen Sortierfunktionen
-linkupExerciseHandler("[data-click='bubbleSort']", () => {
-  const input = getInputValue() // Holt den Text aus dem Eingabefeld
-  if (input) {
-    const result = bubbleSort(input) // Sortiert die Eingabe mit Bubble Sort
-    document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
-  } else {
-    document.querySelector("#sortOutput").textContent =
-      "Bitte eine gültige Eingabe machen!"
-  }
-})
-
-linkupExerciseHandler("[data-click='selectionSort']", () => {
-  const input = getInputValue() // Holt den Text aus dem Eingabefeld
-  if (input) {
-    const result = selectionSort(input) // Sortiert die Eingabe mit Selection Sort
-    document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
-  } else {
-    document.querySelector("#sortOutput").textContent =
-      "Bitte eine gültige Eingabe machen!"
-  }
-})
-
-linkupExerciseHandler("[data-click='insertionSort']", () => {
-  const input = getInputValue() // Holt den Text aus dem Eingabefeld
-  if (input) {
-    const result = insertionSort(input) // Sortiert die Eingabe mit Insertion Sort
-    document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
-  } else {
-    document.querySelector("#sortOutput").textContent =
-      "Bitte eine gültige Eingabe machen!"
-  }
-})
+linkupExerciseHandler("[data-click='bubbleSort']", () => handleSort(bubbleSort))
+linkupExerciseHandler("[data-click='selectionSort']", () =>
+  handleSort(selectionSort),
+)
+linkupExerciseHandler("[data-click='insertionSort']", () =>
+  handleSort(insertionSort),
+)
