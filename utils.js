@@ -107,8 +107,13 @@ export function linkupExerciseHandler(selector, cb) {
 
 // Bubble Sort
 export function bubbleSort(input) {
-  let arr = input.split(",").map((num) => parseInt(num.trim())) // Eingabe in ein Array umwandeln
+  let arr = input.split(",").map((num) => parseInt(num.trim(), 10)) // Eingabe in ein Array umwandeln
   let swapped
+
+  // Eingabeüberprüfung: Stelle sicher, dass alle Eingabewerte Zahlen sind
+  if (arr.some(isNaN)) {
+    return "Ungültige Eingabe! Bitte nur Zahlen eingeben."
+  }
 
   do {
     swapped = false
@@ -125,7 +130,12 @@ export function bubbleSort(input) {
 
 // Selection Sort
 export function selectionSort(input) {
-  let arr = input.split(",").map((num) => parseInt(num.trim())) // Eingabe in ein Array umwandeln
+  let arr = input.split(",").map((num) => parseInt(num.trim(), 10)) // Eingabe in ein Array umwandeln
+
+  // Eingabeüberprüfung: Stelle sicher, dass alle Eingabewerte Zahlen sind
+  if (arr.some(isNaN)) {
+    return "Ungültige Eingabe! Bitte nur Zahlen eingeben."
+  }
 
   for (let i = 0; i < arr.length; i++) {
     let minIndex = i
@@ -142,7 +152,12 @@ export function selectionSort(input) {
 
 // Insertion Sort
 export function insertionSort(input) {
-  let arr = input.split(",").map((num) => parseInt(num.trim())) // Eingabe in ein Array umwandeln
+  let arr = input.split(",").map((num) => parseInt(num.trim(), 10)) // Eingabe in ein Array umwandeln
+
+  // Eingabeüberprüfung: Stelle sicher, dass alle Eingabewerte Zahlen sind
+  if (arr.some(isNaN)) {
+    return "Ungültige Eingabe! Bitte nur Zahlen eingeben."
+  }
 
   for (let i = 1; i < arr.length; i++) {
     let key = arr[i]

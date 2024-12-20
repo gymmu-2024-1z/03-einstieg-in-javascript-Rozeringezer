@@ -636,6 +636,9 @@ export function aufgabe28(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
 
+// Importiere die Sortierfunktionen
+import { bubbleSort, selectionSort, insertionSort } from "./utils.js"
+
 // Diese Funktion holt den Wert aus dem Eingabefeld
 function getInputValue() {
   const input = document.querySelector("#sortInput") // Holt das Eingabefeld
@@ -653,18 +656,33 @@ function linkupExerciseHandler(selector, callback) {
 // Verknüpft die Buttons mit den jeweiligen Sortierfunktionen
 linkupExerciseHandler("[data-click='bubbleSort']", () => {
   const input = getInputValue() // Holt den Text aus dem Eingabefeld
-  const result = bubbleSort(input) // Sortiert die Eingabe mit Bubble Sort
-  document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+  if (input) {
+    const result = bubbleSort(input) // Sortiert die Eingabe mit Bubble Sort
+    document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+  } else {
+    document.querySelector("#sortOutput").textContent =
+      "Bitte eine gültige Eingabe machen!"
+  }
 })
 
 linkupExerciseHandler("[data-click='selectionSort']", () => {
   const input = getInputValue() // Holt den Text aus dem Eingabefeld
-  const result = selectionSort(input) // Sortiert die Eingabe mit Selection Sort
-  document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+  if (input) {
+    const result = selectionSort(input) // Sortiert die Eingabe mit Selection Sort
+    document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+  } else {
+    document.querySelector("#sortOutput").textContent =
+      "Bitte eine gültige Eingabe machen!"
+  }
 })
 
 linkupExerciseHandler("[data-click='insertionSort']", () => {
   const input = getInputValue() // Holt den Text aus dem Eingabefeld
-  const result = insertionSort(input) // Sortiert die Eingabe mit Insertion Sort
-  document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+  if (input) {
+    const result = insertionSort(input) // Sortiert die Eingabe mit Insertion Sort
+    document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+  } else {
+    document.querySelector("#sortOutput").textContent =
+      "Bitte eine gültige Eingabe machen!"
+  }
 })
