@@ -106,36 +106,28 @@ export function linkupExerciseHandler(selector, cb) {
 }
 
 // Bubble Sort
-export function bubbleSort(input) {
-  let arr = input.split(",").map((num) => parseInt(num.trim(), 10)) // Eingabe in ein Array umwandeln
+export function bubbleSort(input, isAlphabet = false) {
+  let arr = parseInput(input, isAlphabet)
+  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben." // Korrekt Anführungszeichen
+
   let swapped
-
-  // Eingabeüberprüfung: Stelle sicher, dass alle Eingabewerte Zahlen sind
-  if (arr.some(isNaN)) {
-    return "Ungültige Eingabe! Bitte nur Zahlen eingeben."
-  }
-
   do {
     swapped = false
     for (let i = 0; i < arr.length - 1; i++) {
       if (arr[i] > arr[i + 1]) {
-        ;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]] // Tauschen der Elemente
+        ;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
         swapped = true
       }
     }
   } while (swapped)
 
-  return arr.join(", ") // Gibt das sortierte Array als String zurück
+  return arr.join(", ")
 }
 
 // Selection Sort
-export function selectionSort(input) {
-  let arr = input.split(",").map((num) => parseInt(num.trim(), 10)) // Eingabe in ein Array umwandeln
-
-  // Eingabeüberprüfung: Stelle sicher, dass alle Eingabewerte Zahlen sind
-  if (arr.some(isNaN)) {
-    return "Ungültige Eingabe! Bitte nur Zahlen eingeben."
-  }
+export function selectionSort(input, isAlphabet = false) {
+  let arr = parseInput(input, isAlphabet)
+  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben." // Korrekt Anführungszeichen
 
   for (let i = 0; i < arr.length; i++) {
     let minIndex = i
@@ -144,20 +136,15 @@ export function selectionSort(input) {
         minIndex = j
       }
     }
-    ;[arr[i], arr[minIndex]] = [arr[minIndex], arr[i]] // Tauschen der Elemente
+    ;[arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
   }
-
-  return arr.join(", ") // Gibt das sortierte Array als String zurück
+  return arr.join(", ")
 }
 
 // Insertion Sort
-export function insertionSort(input) {
-  let arr = input.split(",").map((num) => parseInt(num.trim(), 10)) // Eingabe in ein Array umwandeln
-
-  // Eingabeüberprüfung: Stelle sicher, dass alle Eingabewerte Zahlen sind
-  if (arr.some(isNaN)) {
-    return "Ungültige Eingabe! Bitte nur Zahlen eingeben."
-  }
+export function insertionSort(input, isAlphabet = false) {
+  let arr = parseInput(input, isAlphabet)
+  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben." // Korrekt Anführungszeichen
 
   for (let i = 1; i < arr.length; i++) {
     let key = arr[i]
@@ -167,8 +154,27 @@ export function insertionSort(input) {
       arr[j + 1] = arr[j]
       j = j - 1
     }
-    arr[j + 1] = key // Schlüssel an die richtige Position setzen
+    arr[j + 1] = key
   }
 
-  return arr.join(", ") // Gibt das sortierte Array als String zurück
+  return arr.join(", ")
+}
+
+// Hilfsfunktion zur Eingabeprüfung und Konvertierung
+function parseInput(input, isAlphabet) {
+  let arr = input
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean)
+
+  if (isAlphabet) {
+    // Prüfen, ob alle Einträge Buchstaben sind
+    if (!arr.every((char) => /^[a-zA-Z]+$/.test(char))) return null
+    return arr.map((char) => char.toLowerCase()).sort() // Optional: case-insensitive
+  } else {
+    // Prüfen, ob alle Einträge Zahlen sind
+    let numArr = arr.map((num) => parseInt(num, 10))
+    if (numArr.some(isNaN)) return null
+    return numArr
+  }
 }
