@@ -673,3 +673,30 @@ linkupExerciseHandler("[data-click='selectionSort']", () =>
 linkupExerciseHandler("[data-click='insertionSort']", () =>
   handleSort(insertionSort),
 )
+
+//Funktion zur Überprüfung, ob eine Zahl eine Primzahl ist
+function isPrime(number) {
+  if (number <= 1) {
+    return false
+  }
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false
+    }
+  }
+  return true
+}
+
+// Funktion, die aufgerufen wird, wenn der Button geklickt wird
+function checkPrime() {
+  //Eingabe aus dem Textfeld holen
+  const num = parseInt(document.getElementById("numberInput").value)
+
+  // Überprüfen, ob die Zahl eine Primzahl ist
+  const resultElement = document.getElementById("result")
+  if (isPrime(num)) {
+    resultElement.textContent = "Die Zahl ist eine Primzahl."
+  } else {
+    resultElement.textContent = "Die Zahl ist keine Primzahl."
+  }
+}
