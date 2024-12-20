@@ -636,91 +636,27 @@ export function aufgabe28(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
 
-// Importiere die Sortierfunktionen
-import { bubbleSort, selectionSort, insertionSort } from "./utils.js"
-
-// Funktion zum Anzeigen des Sortierergebnisses
-function handleSort(sortFunction) {
-  const input = getInputValue() // Holt den Text aus dem Eingabefeld
-  if (input) {
-    const parsedInput = input.split(",").map(Number) // Wandelt die Eingabe in ein Array von Zahlen um
-    const result = sortFunction(parsedInput) // Sortiert die Eingabe
-    document.querySelector("#result").textContent = result.join(", ") // Zeigt das Ergebnis im div mit der ID "result"
-  } else {
-    document.querySelector("#result").textContent =
-      "Bitte eine gültige Eingabe machen!" // Falls die Eingabe leer ist
-  }
+// Eigene Aufgabe 01: Entfernen der Vokale
+export function eigeneAufgabe01(args) {
+  const input = args.trim()
+  return input.replace(/[aeiouAEIOU]/g, "") // Ersetzt alle Vokale mit einem leeren String
 }
 
-// Diese Funktion holt den Wert aus dem Eingabefeld
-function getInputValue() {
-  const input = document.querySelector("#sortInput") // Holt das Eingabefeld
-  return input.value.trim() // Entfernt unnötige Leerzeichen und gibt den Wert zurück
+linkupExerciseHandler("[data-click=eigeneAufgabe01]", eigeneAufgabe01)
+
+// Eigene Aufgabe 02: Überprüfen, ob der Text nur aus Zahlen besteht
+export function eigeneAufgabe02(args) {
+  const input = args.trim()
+  const isNumber = /^\d+$/.test(input) // Prüft, ob der Text nur Ziffern enthält
+  return isNumber ? "Nur Zahlen" : "Nicht nur Zahlen"
 }
 
-// Diese Funktion verknüpft Buttons mit den jeweiligen Sortierfunktionen
-function linkupExerciseHandler(selector, callback) {
-  const button = document.querySelector(selector) // Holt den Button
-  if (button) {
-    button.addEventListener("click", callback) // Wenn der Button geklickt wird, die Funktion ausführen
-  }
+linkupExerciseHandler("[data-click=eigeneAufgabe02]", eigeneAufgabe02)
+
+// Eigene Aufgabe 03: Entfernen von Leerzeichen
+export function eigeneAufgabe03(args) {
+  const input = args.trim()
+  return input.replace(/\s+/g, "") // Entfernt alle Leerzeichen
 }
 
-// Verknüpfen der Buttons mit den Sortierfunktionen
-export function bubbleSortHandler(args) {
-  handleSort(bubbleSort)
-}
-
-linkupExerciseHandler("[data-click=bubbleSort]", bubbleSortHandler)
-
-export function selectionSortHandler(args) {
-  handleSort(selectionSort)
-}
-
-linkupExerciseHandler("[data-click=selectionSort]", selectionSortHandler)
-
-export function insertionSortHandler(args) {
-  handleSort(insertionSort)
-}
-
-linkupExerciseHandler("[data-click=insertionSort]", insertionSortHandler)
-
-// Importiere die Primzahl-Funktion
-import { isPrime } from "./utils.js"
-
-// Diese Funktion holt den Wert aus dem Eingabefeld
-function getInputValue() {
-  const input = document.querySelector("#primeInput") // Holt das Eingabefeld
-  return input.value.trim() // Entfernt unnötige Leerzeichen und gibt den Wert zurück
-}
-
-// Funktion zum Überprüfen, ob die Zahl eine Primzahl ist
-function checkPrime() {
-  const input = getInputValue() // Holt den Text aus dem Eingabefeld
-  const number = parseInt(input) // Wandelt den Wert in eine Zahl um
-
-  if (!isNaN(number)) {
-    const result = isPrime(number) // Überprüfe, ob die Zahl eine Primzahl ist
-    document.querySelector("#primeResult").textContent = result
-      ? `${number} ist eine Primzahl.`
-      : `${number} ist keine Primzahl.`
-  } else {
-    document.querySelector("#primeResult").textContent =
-      "Bitte eine gültige Zahl eingeben!" // Falls die Eingabe ungültig ist
-  }
-}
-
-// Diese Funktion verknüpft Buttons mit der Funktion zur Primzahlüberprüfung
-function linkupExerciseHandler(selector, callback) {
-  const button = document.querySelector(selector) // Holt den Button
-  if (button) {
-    button.addEventListener("click", callback) // Wenn der Button geklickt wird, die Funktion ausführen
-  }
-}
-
-// Verknüpfen des Buttons für die Primzahlüberprüfung
-export function primeCheckHandler(args) {
-  checkPrime()
-}
-
-linkupExerciseHandler("[data-click=checkPrime]", primeCheckHandler)
+linkupExerciseHandler("[data-click=eigeneAufgabe03]", eigeneAufgabe03)

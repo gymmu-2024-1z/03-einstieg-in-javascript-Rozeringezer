@@ -106,61 +106,53 @@ export function linkupExerciseHandler(selector, cb) {
 }
 
 // Bubble Sort
-export function bubbleSort(input, isAlphabet = false) {
-  let arr = parseInput(input, isAlphabet)
-  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben."
-
-  let swapped
-  do {
-    swapped = false
-    for (let i = 0; i < arr.length - 1; i++) {
-      if (arr[i] > arr[i + 1]) {
-        ;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]] // Swap
-        swapped = true
+export function bubbleSort(arr) {
+  const n = arr.length
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // Tausche die Elemente
+        let temp = arr[j]
+        arr[j] = arr[j + 1]
+        arr[j + 1] = temp
       }
     }
-  } while (swapped)
-
-  return arr.join(", ")
+  }
+  return arr
 }
 
 // Selection Sort
-export function selectionSort(input, isAlphabet = false) {
-  let arr = parseInput(input, isAlphabet)
-  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben."
-
-  for (let i = 0; i < arr.length; i++) {
-    let minIndex = i
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[minIndex]) {
-        minIndex = j
+export function selectionSort(arr) {
+  const n = arr.length
+  for (let i = 0; i < n - 1; i++) {
+    let minIdx = i
+    for (let j = i + 1; j < n; j++) {
+      if (arr[j] < arr[minIdx]) {
+        minIdx = j
       }
     }
-    ;[arr[i], arr[minIndex]] = [arr[minIndex], arr[i]] // Swap
+    // Tausche das Minimum-Element mit dem aktuellen Element
+    let temp = arr[i]
+    arr[i] = arr[minIdx]
+    arr[minIdx] = temp
   }
-  return arr.join(", ")
+  return arr
 }
 
 // Insertion Sort
-export function insertionSort(input, isAlphabet = false) {
-  let arr = parseInput(input, isAlphabet)
-  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben."
-
-  for (let i = 1; i < arr.length; i++) {
-    let key = arr[i]
+export function insertionSort(arr) {
+  const n = arr.length
+  for (let i = 1; i < n; i++) {
+    const key = arr[i]
     let j = i - 1
-
     while (j >= 0 && arr[j] > key) {
       arr[j + 1] = arr[j]
       j = j - 1
     }
     arr[j + 1] = key
   }
-
-  return arr.join(", ")
+  return arr
 }
-
-// utils.js
 
 // Funktion zur Überprüfung, ob eine Zahl eine Primzahl ist
 export function isPrime(number) {
