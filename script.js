@@ -138,28 +138,25 @@ export function aufgabe04(args) {
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
 export function aufgabe05(args) {
-  // Eingabe wird in Input gespeichert
+  //Eingabe wird in Input gespeichert
   const input = args
-  const result = []
 
-  // Erstelle eine Variable hasCapitalLetter die am anfang falsch ist
-  let hasCapitalLetter = false
-
-  // Schleife über die Eingabe
+  //Schleife über die Eingabe
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
-    // Erstelle eine Variable die den ascii code vom current element speichert
+    //ASCII-Code des aktuellen Zeichens
     const asciiCode = currentElement.charCodeAt(0)
 
-    // Prüfe ob der ASCII code zwischen 65 und 90 ist
+    //Prüfe, ob der ASCII-Code einem Grossbuchstaben entspricht (65-90)
     if (asciiCode >= 65 && asciiCode <= 90) {
-      // Wenn ja, dann setze die hasCapitalLetter auf true
-      hasCapitalLetter = true
+      //Sobald ein Grossbuchstabe gefunden wird, gibt true zurück
+      return true
     }
   }
-  // Gebe die Anzahl der Großbuchstaben zuruck
-  return hasCapitalLetter
+
+  //Wenn kein Grossbuchstabe gefunden wurde, gibt false zuruck
+  return false
 }
 linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 
@@ -437,7 +434,7 @@ export function aufgabe18(args) {
   // Hier schreiben wir ganze Worte in die Liste, auch das ist möglich
   result.push("Sie heissen ")
 
-  // Wir setzen die Liste dann so zusammen, dass der Name und das Alter an der richtigen Stelle eingefügt werden
+  // Wir setzen die Liste dann so zusammen, dass der Name und das Alter an der richtigen Stelle eingefüg werden
   result.push(nameAndAge[0])
   result.push(" und sind ")
   result.push(nameAndAge[1])
