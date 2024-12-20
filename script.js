@@ -660,3 +660,49 @@ export function eigeneAufgabe03(args) {
 }
 
 linkupExerciseHandler("[data-click=eigeneAufgabe03]", eigeneAufgabe03)
+
+// Diese Funktion verbindet den Button mit der Sortier-Funktion
+function verbindenButtonMitFunktion(selector, funktion) {
+  const button = document.querySelector(selector)
+  if (button) {
+    button.addEventListener("click", funktion) // Wenn der Button geklickt wird, wird die Funktion ausgeführt
+  }
+}
+
+// Funktion, um das Ergebnis der Sortierung anzuzeigen
+function anzeigenSortierung(sortierFunktion) {
+  const eingabe = holeEingabewert() // Holt den Text aus dem Eingabefeld
+  if (eingabe) {
+    const eingabeArray = eingabe.split(",").map(Number) // Wandelt den Text in ein Array von Zahlen um
+    const ergebnis = sortierFunktion(eingabeArray) // Sortiert das Array
+    document.querySelector("#result").textContent = ergebnis.join(", ") // Zeigt das Ergebnis an
+  } else {
+    document.querySelector("#result").textContent =
+      "Bitte gib eine gültige Eingabe ein!" // Wenn die Eingabe leer ist
+  }
+}
+
+// Diese Funktion holt den Wert aus dem Eingabefeld
+function holeEingabewert() {
+  const input = document.querySelector("#sortInput") // Holt das Eingabefeld
+  return input.value.trim() // Entfernt unnötige Leerzeichen
+}
+
+// Button mit der Funktion zum Sortieren verbinden
+export function bubbleSortButton(args) {
+  anzeigenSortierung(bubbleSort)
+}
+
+verbindenButtonMitFunktion("[data-click=bubbleSort]", bubbleSortButton)
+
+export function selectionSortButton(args) {
+  anzeigenSortierung(selectionSort)
+}
+
+verbindenButtonMitFunktion("[data-click=selectionSort]", selectionSortButton)
+
+export function insertionSortButton(args) {
+  anzeigenSortierung(insertionSort)
+}
+
+verbindenButtonMitFunktion("[data-click=insertionSort]", insertionSortButton)
