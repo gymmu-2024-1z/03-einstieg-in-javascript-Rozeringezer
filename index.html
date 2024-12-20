@@ -9,8 +9,9 @@
     <script type="module" src="script.js"></script>
   </head>
 
+  <body>
   <div id="input-panel">
-  <h1>Aufgaben für Bedingungen und Schleifen</h1>
+    <h1>Aufgaben für Bedingungen und Schleifen</h1>
   </div>
 
   <input
@@ -19,6 +20,7 @@
     type="text"
     placeholder="Eingabe..."
     value="einfach nur text..." />
+
   <div class="button-container">
     <!-- TODO: Hier neue Buttons erstellen. -->
     <button type="button" data-click="aufgabe28">Aufgabe 28</button>
@@ -51,26 +53,29 @@
     <button type="button" data-click="aufgabe01">Aufgabe 1</button>
   </div>
 
-  <h2>Sortierverfahren</h2>
-          <!-- Input-Feld für Zahlen -->
-          <input
-            id="sortInput"
-            type="text"
-            placeholder="Geben Sie Zahlen, z.B. 5,3,8,1" />
+  <!-- Sortierverfahren Section -->
+  <section>
+    <h2>Sortierverfahren</h2>
+    <input
+      id="sortInput"
+      type="text"
+      placeholder="Geben Sie Zahlen, z.B. 5,3,8,1" />
+  </section>
 
-          <!-- Buttons für verschiedene Sortierverfahren -->
-          <div class="button-container">
-            <button type="button" data-click="bubbleSort">Bubble Sort</button>
-            <button type="button" data-click="selectionSort">Selection Sort</button>
-            <button type="button" data-click="insertionSort">Insertion Sort</button>
-          </div>
-
-          <!-- Output-Feld -->
-          <div id="sortOutput">Sortierergebnis erscheint hier</div>
-        </section>
-
-        <!-- Optional für Konsolenausgabe -->
-        <div id="output-content">Output erscheint hier</div>
-    </div>
-  </body>
+  <!-- Buttons für die Sortierverfahren -->
+  <div class="button-container">
+    <button type="button" data-click="bubbleSort">Bubble Sort</button>
+    <button type="button" data-click="selectionSort">Selection Sort</button>
+    <button type="button" data-click="insertionSort">Insertion Sort</button>
+  </div>
 </html>
+
+<!-- Eingabefeld für die Zahl -->
+<section>
+  <h2>Primzahlüberprüfung</h2>
+  <input id="numberInput" type="number" placeholder="Geben Sie eine Zahl ein" />
+  <button type="button" onclick="checkPrime()">Überprüfen</button>
+</section>
+
+<!-- Ausgabe des Ergebnisses -->
+<div id="result"></div>

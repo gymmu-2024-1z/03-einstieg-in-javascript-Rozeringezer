@@ -108,14 +108,14 @@ export function linkupExerciseHandler(selector, cb) {
 // Bubble Sort
 export function bubbleSort(input, isAlphabet = false) {
   let arr = parseInput(input, isAlphabet)
-  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben." // Korrekt Anführungszeichen
+  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben."
 
   let swapped
   do {
     swapped = false
     for (let i = 0; i < arr.length - 1; i++) {
       if (arr[i] > arr[i + 1]) {
-        ;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+        ;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]] // Swap
         swapped = true
       }
     }
@@ -127,7 +127,7 @@ export function bubbleSort(input, isAlphabet = false) {
 // Selection Sort
 export function selectionSort(input, isAlphabet = false) {
   let arr = parseInput(input, isAlphabet)
-  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben." // Korrekt Anführungszeichen
+  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben."
 
   for (let i = 0; i < arr.length; i++) {
     let minIndex = i
@@ -136,7 +136,7 @@ export function selectionSort(input, isAlphabet = false) {
         minIndex = j
       }
     }
-    ;[arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
+    ;[arr[i], arr[minIndex]] = [arr[minIndex], arr[i]] // Swap
   }
   return arr.join(", ")
 }
@@ -144,7 +144,7 @@ export function selectionSort(input, isAlphabet = false) {
 // Insertion Sort
 export function insertionSort(input, isAlphabet = false) {
   let arr = parseInput(input, isAlphabet)
-  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben." // Korrekt Anführungszeichen
+  if (!arr) return "Ungültige Eingabe. Bitte korrekte Daten eingeben."
 
   for (let i = 1; i < arr.length; i++) {
     let key = arr[i]
