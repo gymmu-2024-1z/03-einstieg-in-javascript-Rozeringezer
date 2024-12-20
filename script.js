@@ -635,3 +635,36 @@ export function aufgabe28(args) {
   return "Fehler: Bitte geben Sie zwei Zahlen durch ein Leerzeichen getrennt ein."
 }
 linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
+
+// Diese Funktion holt den Wert aus dem Eingabefeld
+function getInputValue() {
+  const input = document.querySelector("#sortInput") // Holt das Eingabefeld
+  return input.value.trim() // Entfernt unnötige Leerzeichen und gibt den Wert zurück
+}
+
+// Diese Funktion verknüpft Buttons mit den jeweiligen Sortierfunktionen
+function linkupExerciseHandler(selector, callback) {
+  const button = document.querySelector(selector) // Holt den Button
+  if (button) {
+    button.addEventListener("click", callback) // Wenn der Button geklickt wird, die Funktion ausführen
+  }
+}
+
+// Verknüpft die Buttons mit den jeweiligen Sortierfunktionen
+linkupExerciseHandler("[data-click='bubbleSort']", () => {
+  const input = getInputValue() // Holt den Text aus dem Eingabefeld
+  const result = bubbleSort(input) // Sortiert die Eingabe mit Bubble Sort
+  document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+})
+
+linkupExerciseHandler("[data-click='selectionSort']", () => {
+  const input = getInputValue() // Holt den Text aus dem Eingabefeld
+  const result = selectionSort(input) // Sortiert die Eingabe mit Selection Sort
+  document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+})
+
+linkupExerciseHandler("[data-click='insertionSort']", () => {
+  const input = getInputValue() // Holt den Text aus dem Eingabefeld
+  const result = insertionSort(input) // Sortiert die Eingabe mit Insertion Sort
+  document.querySelector("#sortOutput").textContent = result // Zeigt das Ergebnis im div mit der ID "sortOutput"
+})

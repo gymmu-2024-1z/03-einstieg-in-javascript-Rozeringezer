@@ -104,3 +104,56 @@ export function linkupExerciseHandler(selector, cb) {
     elem?.addEventListener("click", () => $(cb))
   }
 }
+
+// Bubble Sort
+export function bubbleSort(input) {
+  let arr = input.split(",").map((num) => parseInt(num.trim())) // Eingabe in ein Array umwandeln
+  let swapped
+
+  do {
+    swapped = false
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        ;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]] // Tauschen der Elemente
+        swapped = true
+      }
+    }
+  } while (swapped)
+
+  return arr.join(", ") // Gibt das sortierte Array als String zurück
+}
+
+// Selection Sort
+export function selectionSort(input) {
+  let arr = input.split(",").map((num) => parseInt(num.trim())) // Eingabe in ein Array umwandeln
+
+  for (let i = 0; i < arr.length; i++) {
+    let minIndex = i
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j
+      }
+    }
+    ;[arr[i], arr[minIndex]] = [arr[minIndex], arr[i]] // Tauschen der Elemente
+  }
+
+  return arr.join(", ") // Gibt das sortierte Array als String zurück
+}
+
+// Insertion Sort
+export function insertionSort(input) {
+  let arr = input.split(",").map((num) => parseInt(num.trim())) // Eingabe in ein Array umwandeln
+
+  for (let i = 1; i < arr.length; i++) {
+    let key = arr[i]
+    let j = i - 1
+
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j]
+      j = j - 1
+    }
+    arr[j + 1] = key // Schlüssel an die richtige Position setzen
+  }
+
+  return arr.join(", ") // Gibt das sortierte Array als String zurück
+}

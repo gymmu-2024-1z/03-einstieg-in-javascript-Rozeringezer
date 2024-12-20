@@ -9,7 +9,7 @@
     <script type="module" src="script.js"></script>
   </head>
 
-  <body>
+  <div>
     <div id="input-panel">
       <h1>Aufgaben für Bedingungen und Schleifen</h1>
 
@@ -53,21 +53,29 @@
 
       <section>
         <h2>Sortierverfahren</h2>
-        <!-- TODO: Schreiben Sie hier zu Sortierverfahren-->
-      </section>
-    </div>
+        <!-- Input-Feld für Zahlen -->
+        <input
+          id="sortInput"
+          type="text"
+          placeholder="Geben Sie Zahlen, z.B. 5,3,8,1" />
 
-    <div id="output">
-      <div id="output-header">
-        <div class="ctrl-buttons">
-          <span class="btn" data-click="clearConsole">&#x1f5d1;</span>
-          <span class="btn" data-click="increaseFontSize">+</span>
-          <span class="btn" data-click="decreaseFontSize">-</span>
-          <span class="btn" data-click="increaseOutputHeight">&#x21A5;</span>
-          <span class="btn" data-click="decreaseOutputHeight">&#x21A7;</span>
+        <!-- Buttons für verschiedene Sortierverfahren -->
+        <div class="button-container">
+          <button type="button" data-click="bubbleSort">Bubble Sort</button>
+          <button type="button" data-click="selectionSort">
+            Selection Sort
+          </button>
+          <button type="button" data-click="insertionSort">
+            Insertion Sort
+          </button>
         </div>
-      </div>
-      <div id="output-content">></div>
+      </section>
+
+      <!-- Ergebnisbereich -->
+      <div id="sortOutput"></div>
+
+      <!-- Optional für Konsolenausgabe -->
+      <div id="output-content"></div>
     </div>
-  </body>
+  </div>
 </html>
